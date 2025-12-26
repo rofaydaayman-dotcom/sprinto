@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sprint Hub | Start To Achieve</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --main-font: 'Cairo', sans-serif; /* الخط البديل لـ Hacen */
+            --purple-btn: linear-gradient(to bottom, #9d5bb1, #7b3e91);
+            --green-btn: linear-gradient(to bottom, #69bc00, #4b8900);
+            --blue-btn: linear-gradient(to bottom, #0056e0, #003da1);
+            --black-btn: linear-gradient(to bottom, #444, #222);
+            --orange-btn: linear-gradient(to bottom, #d67d00, #a15e00);
+            --cyan-btn: linear-gradient(to bottom, #0099d8, #006da1);
+        }
+
+        body {
+            font-family: var(--main-font);
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 30px 15px;
+            min-height: 100vh;
+        }
+
+        /* تعديل سكيل اللوجوهات ليكون أكبر */
+        .logo-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px; /* زيادة المسافة بين اللوجوهين */
+            margin-bottom: 25px;
+            width: 100%;
+        }
+
+        .logo-section img {
+            height: 110px; /* تم تكبير الحجم من 60 إلى 110 */
+            width: auto;
+            max-width: 45%; /* لضمان عدم خروجهم عن الشاشة في الموبايلات الصغيرة */
+            object-fit: contain;
+            /* إضافة ظل خفيف لإبراز اللوجو */
+            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.05));
+        }
+
+        .title {
+            font-size: 28px;
+            font-weight: 900;
+            margin-bottom: 40px;
+            color: #000;
+            text-align: center;
+        }
+
+        .links-container {
+            width: 100%;
+            max-width: 350px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 25px;
+            height: 68px;
+            border-radius: 50px;
+            text-decoration: none;
+            color: white;
+            font-weight: 700;
+            font-size: 20px;
+            box-shadow: inset 0 -6px 8px rgba(0,0,0,0.2), 0 8px 15px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:active {
+            transform: scale(0.95);
+        }
+
+        .secret { background: var(--purple-btn); color: #f6e395 !important; }
+        .whatsapp { background: var(--green-btn); }
+        .facebook { background: var(--blue-btn); }
+        .tiktok { background: var(--black-btn); }
+        .instagram { background: var(--orange-btn); }
+        .linkedin { 
+            background: var(--cyan-btn); 
+            width: 65%; 
+            margin: 5px auto; 
+            height: 48px; 
+            font-size: 16px;
+        }
+
+        /* نافذة الرسالة */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+        }
+        .modal-card {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 40px 20px;
+            border-radius: 25px;
+            width: 85%;
+            max-width: 380px;
+            text-align: center;
+        }
+        .close-btn {
+            margin-top: 25px;
+            background: #7b3e91;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="logo-section">
+        <img src="sprint-business-hub.png" alt="Sprint Business Hub">
+        <img src="sprint-coworking-space.png" alt="Sprint Coworking Space">
+    </div>
+
+    <div class="title">START TO ACHIEVE</div>
+
+    <div class="links-container">
+        <button class="btn secret" onclick="openMsg()">
+            <span>your secret message</span>
+            <i class="fa-solid fa-envelope-open-text"></i>
+        </button>
+
+        <a href="https://wa.me/message/NZRG2BOX7BACH1" class="btn whatsapp" target="_blank">
+            <span>whatsapp</span>
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+
+        <a href="https://www.facebook.com/share/17iQKvRjx4/?mibextid=wwXIfr" class="btn facebook" target="_blank">
+            <span>facebook</span>
+            <i class="fa-brands fa-facebook-f"></i>
+        </a>
+
+        <a href="https://www.tiktok.com/@sprinto.coworkingspace?_r=1&_t=ZS-92YJH7ADaI3" class="btn tiktok" target="_blank">
+            <span>Tik Tok</span>
+            <i class="fa-brands fa-tiktok"></i>
+        </a>
+
+        <a href="https://www.instagram.com/sprintocoworkingspace?igsh=MXQ4Ym9kYTA2bG9wYg%3D%3D&utm_source=qr" class="btn instagram" target="_blank">
+            <span>Instagram</span>
+            <i class="fa-brands fa-instagram"></i>
+        </a>
+
+        <a href="https://www.linkedin.com/company/sprinto-coworking-space/" class="btn linkedin" target="_blank">
+            <span>linked in</span>
+            <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+    </div>
+
+    <div class="modal-overlay" id="overlay">
+        <div class="modal-card">
+            <h3 id="msg-text"></h3>
+            <button class="close-btn" onclick="closeMsg()">إغلاق</button>
+        </div>
+    </div>
+
+    <script>
+        const messages = [
+            "النجاح يبدأ بخطوة، وأنت بدأت بالفعل! ✨",
+            "يومك مليء بالإنجازات في Sprint Hub 🚀",
+            "تذكر أن تعبك اليوم هو فخرك غداً.",
+            "ابتسم، أنت في المكان المخصص للمبدعين.",
+            "كل فكرة عظيمة تحتاج لمكان هادئ لتنمو.. أنت هنا الآن."
+        ];
+
+        function openMsg() {
+            const random = messages[Math.floor(Math.random() * messages.length)];
+            document.getElementById('msg-text').innerText = random;
+            document.getElementById('overlay').style.display = 'block';
+        }
+
+        function closeMsg() {
+            document.getElementById('overlay').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
